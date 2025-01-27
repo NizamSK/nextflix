@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflix
+  labels:
+    app: netflix
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netflix
+  template:
+    metadata:
+      labels:
+        app: netflix
+    spec:
+      containers:
+      - name: pandacloud-container
+        image: 894486220781.dkr.ecr.us-east-1.amazonaws.com/netflix-clone:latest
+        ports:
+        - containerPort: 3000
